@@ -53,9 +53,13 @@ Misplaced characters were replaced.
 Some column names were renamed.
 Some columns were converted to their appropriate data type.
 
-Answering the questions
+Answering the questions.
+
 This section answers the questions asked based on the formulated hypothesis.
+
+
 The Telco's churn rate
+
 
 
 ![Qu_1](https://user-images.githubusercontent.com/57757966/228474866-6709d9cb-208e-4f28-aebd-b4177b2f3b75.png)
