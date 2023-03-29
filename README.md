@@ -1,147 +1,190 @@
-# Telco-customer-churn-prediction
-This is a classification project that seeks to predict a telco's customers churning 
----
+# Classification -- Predicting Customer Churn
 
-Customer Churn Prediction for a Telco
+## Introduction
 
-Introduction
-It is a common phenomenon for customers to leave one company for another due to one reason or the other. This is referred to as customer churning or turnover. Business operators have become conscious of the project and therefore are taking measures to deal with the situation. This is a classification problem that requires the services of a data professional to analyze and predict the churn rate in the company and the possible churn in the future. That is the aim of this project.
-Data Overview
-The dataset contained 7043 rows and 21 columns. The columns are (a) the customer ID - for identifying the individual customer of the company. (b) gender - whether a customer is a male or female. (c) SeniorCitizen - if a customer is aged or young. (d) Partner - if a customer has a life partner or is single. (e) Dependent - if the customer has a dependent or not. (f) tenure - the total month a customer has been with the company. (g) PhoneServices- if the customer enjoys phone services or not. (h) MulpleLines - if a customer uses more than one line. (i) InternetServices - Customer has internet services at his disposure or not. (j) OnlineSecurity - whether or not online services are a customer's disposure. (k) OnlineBackup - if a customer has backup services or not. (l) DeviceProtection - if a customer has device protection services or not. (m) TechSupport - where or not a customer use tech support service. (n) StreamingTV - if a customer has TV streaming services. (o) StreamMovies - if a customer streams movie or not. (p) Contract - whether a month, or year's term of service the customer has with the company. (q) PaperlessBilling - whether the customer has paper billing or not. (r) PaymentMethod - the kind of payment method the customer uses. (s) MonthlyCharges - the amount of month the customer pays to the company every month. (t) TotalCharges - the total amount the company has charged a customer. (u) Churn - if a customer has left the company or not.
-Collection of Data
-This section talks about the dataset - how it was manipulated to obtain quality data for better analysis. The process includes.
-(a) modules importation: we imported different modules and libraries for; the performance of mathematical operations, data manipulations, graphs, and visualizations, handling missing values, Feature Encoding and scaling, class imbalance, and Machine learning modeling
-(b) The Data 
-The shape of the dataset is 7043 rows representing the number of customers and 21 columns. The data type has 1 float, 2 integers, and 18 objects. The total memory used by the dataset is 1.1 megabytes.
-Issues identified with the dataset include. 
-The Total Charges  column is expected to be either an integer or float, but it was an object datatype.
-The Total Charges column has 11 missing values.
-gender and tenure started with a small letter making them look different from the other column names.
+Customer attrition is one of the biggest expenditures of any
+organization. Customer churn otherwise known as customer attrition or
+customer turnover is the percentage of customers that stopped using your
+company\'s product or service within a specified timeframe.\
+For instance, if you began the year with 500 customers but later ended
+with 480 customers, the percentage of customers that left would be 4%.
+If we could figure out why a customer leaves and when they leave with
+reasonable accuracy, it would immensely help the organization to
+strategize their retention initiatives manifold.
 
-How to handle the issues
-We will convert TotalCharges to float data type.
-We will replace non-numeric characters with the appropriate values.
-impute the missing values with the mean.
-convert Senior Citizen to object.
-Rename gender to Gender and tenure to Tenure.
+In this project, we aim to find the likelihood of a customer leaving the
+organization, the key indicators of churn as well as the retention
+strategies that can be implemented to avert this problem.
 
-After the issues are resolved, 
-Numerical columns = {Tenure, MonthlyCharges, TotalCharges}
-Categorical columns = {gender, SeniorCitizen, Partner, Dependents, PhoneService, MultipleLines,  InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract, PaperlessBilling, PaymentMethod}
+## Data Understanding
 
-Target column = Churn (we are targeting churn because the project seeks to predict customers in the future)
-Hypothesis and Questions
-Hypothesis helps us to investigate the relationship that exists between different variables in our dataset and guides us on the path to predict factors that cause customer churn in the company. We formulated the following hypothesis to guide us in our analysis.
-Null Hypothesis H0: Customer satisfaction has direct effect customer churning rate.
-Alternative Hypothesis H1: Customer satisfaction has no direct effect on customer churn.
-Based on the hypothesis we came up with the following questions
+The data for this project is in a csv format. The following describes
+the columns present in the data.
 
----
+**Gender** -- Whether the customer is a male or a female
 
-What is the churn rate of Telco?
-Which category of customers is likely to churn?
-Do Senior Citizens pay fewer monthly charges than younger Citizens?
-Are customers with Dependents likely to churn?
-How do Dependents affect multiple lines?
-What is the churn rate of the Telco by gender?
-How many customers use different payment methods?
+**SeniorCitizen** -- Whether a customer is a senior citizen or not
 
-Data processing
-This part of the analysis process is about making available clean, quality data so that the accuracy of the prediction will not negatively be affected. We carried the following on the data.
-Dropped irrelevant columns.
-Misplaced characters were replaced.
-Some column names were renamed.
-Some columns were converted to their appropriate data type.
+**Partner** -- Whether the customer has a partner or not (Yes, No)
 
-Answering the questions.
+**Dependents** -- Whether the customer has dependents or not (Yes, No)
 
-This section answers the questions asked based on the formulated hypothesis.
+**Tenure** -- Number of months the customer has stayed with the company
 
+**Phone Service** -- Whether the customer has a phone service or not
+(Yes, No)
 
-The Telco's churn rate
+**MultipleLines** -- Whether the customer has multiple lines or not
 
+**InternetService** -- Customer's internet service provider (DSL, Fiber
+Optic, No)
 
+**OnlineSecurity** -- Whether the customer has online security or not
+(Yes, No, No Internet)
 
-![Qu_1](https://user-images.githubusercontent.com/57757966/228474866-6709d9cb-208e-4f28-aebd-b4177b2f3b75.png)
+**OnlineBackup** -- Whether the customer has online backup or not (Yes,
+No, No Internet)
 
+**DeviceProtection** -- Whether the customer has device protection or
+not (Yes, No, No internet service)
 
-Pie showing the percentage of customers' churn and Non-churn.From the graph above, the Telco's customer churn rate is 27%
-2. Which category of customers is likely to churn?
+**TechSupport** -- Whether the customer has tech support or not (Yes,
+No, No internet)
 
+**StreamingTV** -- Whether the customer has streaming TV or not (Yes,
+No, No internet service)
 
-![Qu_2a](https://user-images.githubusercontent.com/57757966/228477737-9cfc2467-0899-4826-a24f-f5ea727c6fe3.png)
+**StreamingMovies** -- Whether the customer has streaming movies or not
+(Yes, No, No Internet service)
 
+**Contract** -- The contract term of the customer (Month-to-Month, One
+year, Two year)
 
+**PaperlessBilling** -- Whether the customer has paperless billing or
+not (Yes, No)
 
-![Qu_2b](https://user-images.githubusercontent.com/57757966/228478130-992b328b-918c-43db-9847-e352e3ca4260.png)
+**Payment Method** -- The customer's payment method (Electronic check,
+mailed check, Bank transfer(automatic), Credit card(automatic))
 
+**MonthlyCharges** -- The amount charged to the customer monthly
 
+**TotalCharges** -- The total amount charged to the customer
 
-![Qu_2c](https://user-images.githubusercontent.com/57757966/228478287-f4862694-a179-489c-ab90-be4b3a1157a7.png)
+**Churn** -- Whether the customer churned or not (Yes or No)
 
+## Instructions
 
-![Qu_2d](https://user-images.githubusercontent.com/57757966/228478516-6c682c4a-8616-46a1-bd40-6c6ba1e2f8ae.png)
+Your task is to understand the data and prepare it for model building.
+Your analysis or methods should incorporate the following steps.
 
+1.  Hypothesis formation and Data Processing - Importing the relevant libraries and modules,
+    Cleaning of Data, Check data types, Encoding Data labels etc.
 
+2.  Data Evaluation -- Perform bivariate and multivariate analysis, EDA
 
-From the numeric columns;
-Senior citizens: Customers who are not senior citizens are more likely to churn than customers who are senior citizens.
-Tenure: customers who are in their first five months and those that have stayed with the company for about five years have a higher churn rate than those in the mid-tenure.
-Monthly charges: Customers who are charged higher monthly charges are less likely to churn than those who have fewer monthly charges.
-Total Charges: the higher a customer's Total Charges the lesser chance of churning and the reverse is also true.
-3. Senior Citizen's monthly charges against younger Citizens
+See attached some useful resources \[ [Exploratory Data Analysis:
+Univariate, Bivariate, and Multivariate
+Analysis](https://www.enjoyalgorithms.com/blog/univariate-bivariate-multivariate-analysis)
+, [Univariate, Bivariate and Multivariate
+Analysis](https://youtu.be/w_Tm-H-emRo) , [Exploratory Data Analysis
+(EDA) Using Python](https://youtu.be/-o3AxdVcUtQ)\]
 
-![Qu_3](https://user-images.githubusercontent.com/57757966/228491482-83d558d6-f1b9-4a00-a0a0-3aaa20db70fc.png)
+3.  Build & Select Model -- Train Model on dataset and select the best
+    performing model.
 
-From the graph, Senior Citizens are paid more Monthly Charges than Non-Senior Citizens. Senior Citizens pay around 80 million monthly charges while Non-Senior Citizens pay a little above 60 million Month Charges.
+4.  Evaluate your chosen Model.
 
-4. Are customers with Dependents likely to churn?
+5.  Model Improvement.
 
-![Qu_4](https://user-images.githubusercontent.com/57757966/228491824-35813b82-9553-426a-91f9-b48fe0de168f.png)
+6.  Future Predictions.
 
+7.  Key Insights and Conclusion.
 
-From the graph, a little above 15000 customers of the Telco  without Dependents churn while those with Dependent churn below 500. This means that the likelihood of a customer churning is not based on having Dependents.
+Upon completion of your project, you are required to write a blog post
+on your thought process on medium, LinkedIn, personal blog, or any other
+suitable blogging site.
 
-5. How Dependents affect multiple lines
+## Rubrics
 
-![Qu_5](https://user-images.githubusercontent.com/57757966/228492101-2a159df4-6a15-4198-a959-f2c33e477688.png)
+Hypothesis & Data Processing:
 
-From the graph, 3390 customers have dependents but do not have Multiple lines. 2971 of the customers have dependents and also have multiple lines and 682 of the customers have dependents but have no phone services. We can conclude that there is no likelihood that customers with dependents will have multiple lines.
-6. Churn rate of the Telco by gender?
+-   **Excellent:** Stated hypothesis and asked relevant questions.
+    Import all relevant libraries and conduct all checks
+    to make the data ready for future Analysis.
 
-![Qu_6](https://user-images.githubusercontent.com/57757966/228492281-dd22ee5e-ed74-4d7e-836f-11dc56f8fdf3.png)
+-   **Good:** Stated hypothesis and implemented few steps to check
+    the quality of data.
 
-The above graph shows that 50% of Males and 50% percent of Females make up the total customers of Telco. The rate at which they churn each is around 27%. This shows that both males and females have approximately, equal chances of leaving the Telco for another.
-7. Customers with partners and churn
+-   **Fair:** Didn't perform adequate steps in preprocessing the data and also ignored hypothesis.
 
-![newplot (3)](https://user-images.githubusercontent.com/57757966/228492956-afebc3cb-d019-4d9d-80cf-c79401755c91.png)
+**NB:** Quality checks should involve checking data types,
+missing values, and dealing with class imbalance.
 
+Data Evaluation:
 
+-   **Excellent:** Performed more than 5 bivariate and multivariate
+    analysis coupled with graphs to answer questions and hypothesis formed.
 
-It can be seen from the graph that customers with no partners (1200) churn more than those with partners (669). 
-8. How many customers use the different payment methods
+-   **Good:** Performed few bivariate and multivariate analysis coupled
+    with graphs to answer some questions and hypothesis.
 
-![newplot (4)](https://user-images.githubusercontent.com/57757966/228493459-52569448-6403-4353-8255-8f340a18affa.png)
+-   **Fair:** Performed only 1 or 2 bivariate & multivariate analysis
+    but omitted key visuals like the correlation matrix.
 
+**[NB:]{.ul}** Visuals should check collinearity, churn rate,
+distributions etc.
 
-In the above graph, the different payment methods by the telco and the rate at which customers use them are 22.8% for Mailed checks, Electronic Check is at 33.65%, Bank transfers (automatic) made up 21.6% and credit cards were 21.9%. It means that a slight majority of the customers preferred the electronic check payment method over the other method.
-Feature Processing & Engineering
-Under this sub-section, our data is further processed to prepare it for modeling. 
-we checked for duplicated values in the dataset.
-imputed the missing values (numerical columns with the mean and most frequent for categorical columns).
-split the data set into feature and target variables and then split it into train, and validation datasets.
-encoded the categorical features using One Hot Encoder.
+Build and Select Model:
 
-Feature Scaling
-We Scaled the target value (Churn) to make it easy for models to learn and understand the problem. We fitted and transformed both train and validation datasets.
-Machine learning Modeling
-Six models were trained on the data to select the model that performed best on the data.  Model 1 - Decision Tree, Model 2 - Random Forest, Model 3 - Logistic Regression, Model 4 - K Nearest Neighbor, Model 5 - Support Vector Machine, Model 6 - Naive Bayes.
-Model Comparison
-0 DecisionTreeClassifier 0.482759
-1 RandomForestClassifier 0.518405
-2 KNNeighbor 0.600293
-3 LogisticRegression 0.553476
-4 SVC 0.550769 
-5 GaussianNB 0.593928
-We compared the f1_score of all the models and the mode that performed best was the KNNeighbor with an f1Score of 60%.
-Note: the project will continue, and this article will be edited to feature the completed work. Thank you.
+-   **Excellent:** Train 4 or more models and compare their combination
+    of accuracy, precision, recall and F1 & F2 scores.
+
+-   **Good:** Train less than 4 models and compare their accuracy,
+    precision, recall and F1 & F2 scores.
+
+-   **Fair:** Train only 1 model and didn't compare any accuracy,
+    precision, recall and F1 & F2 scores.
+
+Evaluate Chosen model
+
+-   **Excellent:** Learner evaluates his/her model through k-Fold cross
+    validation and explains the rationale for doing so. The results are
+    further visualized on a graph.
+
+-   **Good:** Learner only performed cross-validation with little
+    explanation.
+
+-   **Fair:** Performed only cross validation on the model without
+    explaining the rationale behind.
+
+Model Improvement
+
+-   **Excellent:** Learner performed Hyperparameter tuning and explained
+    the concept into details.
+
+-   **Good:** Learner performed Hyperparameter tuning with little
+    explanation on the concept.
+
+-   **Fair:** Learner only performed Hyperparameter tuning.
+
+Future Predictions
+
+-   **Excellent:** Predicted on test sets and visualized the results via
+    Confusion Matrix with detailed explanation of Confusion Matrix
+    visual.
+
+-   **Good:** Predicted on test data and only visualized on Confusion
+    Matrix without any explanation of the graph.
+
+-   **Fair:** Only predicted on test data.
+
+Key Insights and Conclusion
+
+-   **Excellent:** Provide a vivid conclusion on the process by
+    providing 5 or more key insights from the analysis, challenges, and
+    the way forward.
+
+-   **Good:** Gave a conclusion by providing two of either key insights,
+    challenges, and way forward.
+
+-   **Fair:** Provided only key insights as conclusion.
