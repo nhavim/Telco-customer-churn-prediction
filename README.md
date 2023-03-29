@@ -56,7 +56,7 @@ Some columns were converted to their appropriate data type.
 Answering the questions
 This section answers the questions asked based on the formulated hypothesis.
 The Telco's churn rate
-![Azubi_Projects](../download.png")
+![Qu_1](https://user-images.githubusercontent.com/57757966/228474866-6709d9cb-208e-4f28-aebd-b4177b2f3b75.png)
 Pie showing the percentage of customers' churn and Non-churn.From the graph above, the Telco's customer churn rate is 27%
 2. Which category of customers is likely to churn?
 ![Azubi_Projects](../)
