@@ -91,18 +91,39 @@ Monthly charges: Customers who are charged higher monthly charges are less likel
 Total Charges: the higher a customer's Total Charges the lesser chance of churning and the reverse is also true.
 3. Senior Citizen's monthly charges against younger Citizens
 
-
+![Qu_3](https://user-images.githubusercontent.com/57757966/228491482-83d558d6-f1b9-4a00-a0a0-3aaa20db70fc.png)
 
 From the graph, Senior Citizens are paid more Monthly Charges than Non-Senior Citizens. Senior Citizens pay around 80 million monthly charges while Non-Senior Citizens pay a little above 60 million Month Charges.
+
 4. Are customers with Dependents likely to churn?
+
+![Qu_4](https://user-images.githubusercontent.com/57757966/228491824-35813b82-9553-426a-91f9-b48fe0de168f.png)
+
+
 From the graph, a little above 15000 customers of the Telco  without Dependents churn while those with Dependent churn below 500. This means that the likelihood of a customer churning is not based on having Dependents.
+
 5. How Dependents affect multiple lines
+
+![Qu_5](https://user-images.githubusercontent.com/57757966/228492101-2a159df4-6a15-4198-a959-f2c33e477688.png)
+
 From the graph, 3390 customers have dependents but do not have Multiple lines. 2971 of the customers have dependents and also have multiple lines and 682 of the customers have dependents but have no phone services. We can conclude that there is no likelihood that customers with dependents will have multiple lines.
 6. Churn rate of the Telco by gender?
+
+![Qu_6](https://user-images.githubusercontent.com/57757966/228492281-dd22ee5e-ed74-4d7e-836f-11dc56f8fdf3.png)
+
 The above graph shows that 50% of Males and 50% percent of Females make up the total customers of Telco. The rate at which they churn each is around 27%. This shows that both males and females have approximately, equal chances of leaving the Telco for another.
 7. Customers with partners and churn
+
+![newplot (3)](https://user-images.githubusercontent.com/57757966/228492956-afebc3cb-d019-4d9d-80cf-c79401755c91.png)
+
+
+
 It can be seen from the graph that customers with no partners (1200) churn more than those with partners (669). 
 8. How many customers use the different payment methods
+
+![newplot (4)](https://user-images.githubusercontent.com/57757966/228493459-52569448-6403-4353-8255-8f340a18affa.png)
+
+
 In the above graph, the different payment methods by the telco and the rate at which customers use them are 22.8% for Mailed checks, Electronic Check is at 33.65%, Bank transfers (automatic) made up 21.6% and credit cards were 21.9%. It means that a slight majority of the customers preferred the electronic check payment method over the other method.
 Feature Processing & Engineering
 Under this sub-section, our data is further processed to prepare it for modeling. 
