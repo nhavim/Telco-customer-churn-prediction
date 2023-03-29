@@ -67,7 +67,22 @@ The Telco's churn rate
 
 Pie showing the percentage of customers' churn and Non-churn.From the graph above, the Telco's customer churn rate is 27%
 2. Which category of customers is likely to churn?
-![Azubi_Projects](../)
+
+
+![Qu_2a](https://user-images.githubusercontent.com/57757966/228477737-9cfc2467-0899-4826-a24f-f5ea727c6fe3.png)
+
+
+
+![Qu_2b](https://user-images.githubusercontent.com/57757966/228478130-992b328b-918c-43db-9847-e352e3ca4260.png)
+
+
+
+![Qu_2c](https://user-images.githubusercontent.com/57757966/228478287-f4862694-a179-489c-ab90-be4b3a1157a7.png)
+
+
+![Qu_2d](https://user-images.githubusercontent.com/57757966/228478516-6c682c4a-8616-46a1-bd40-6c6ba1e2f8ae.png)
+
+
 
 From the numeric columns;
 Senior citizens: Customers who are not senior citizens are more likely to churn than customers who are senior citizens.
@@ -75,6 +90,9 @@ Tenure: customers who are in their first five months and those that have stayed 
 Monthly charges: Customers who are charged higher monthly charges are less likely to churn than those who have fewer monthly charges.
 Total Charges: the higher a customer's Total Charges the lesser chance of churning and the reverse is also true.
 3. Senior Citizen's monthly charges against younger Citizens
+
+
+
 From the graph, Senior Citizens are paid more Monthly Charges than Non-Senior Citizens. Senior Citizens pay around 80 million monthly charges while Non-Senior Citizens pay a little above 60 million Month Charges.
 4. Are customers with Dependents likely to churn?
 From the graph, a little above 15000 customers of the Telco  without Dependents churn while those with Dependent churn below 500. This means that the likelihood of a customer churning is not based on having Dependents.
