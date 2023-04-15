@@ -2,189 +2,164 @@
 
 ## Introduction
 
-Customer attrition is one of the biggest expenditures of any
-organization. Customer churn otherwise known as customer attrition or
-customer turnover is the percentage of customers that stopped using your
-company\'s product or service within a specified timeframe.\
-For instance, if you began the year with 500 customers but later ended
-with 480 customers, the percentage of customers that left would be 4%.
-If we could figure out why a customer leaves and when they leave with
-reasonable accuracy, it would immensely help the organization to
-strategize their retention initiatives manifold.
+Customer Churn Prediction for a Telco
 
-In this project, we aim to find the likelihood of a customer leaving the
-organization, the key indicators of churn as well as the retention
-strategies that can be implemented to avert this problem.
 
-## Data Understanding
+Introduction
+It is a common phenomenon for customers to leave one company for another due to one reason or the other. This is referred to as customer churning or turnover. Business operators have become conscious of the project and therefore are taking measures to deal with the situation. This is a classification problem that requires the services of a data professional to analyze and predict the churn rate in the company and the possible churn in the future. That is the aim of this project.
 
-The data for this project is in a csv format. The following describes
-the columns present in the data.
+Data Overview
+The dataset contained 7043 rows and 21 columns. The columns are (a) the customer ID — for identifying the individual customer of the company. (b) gender — whether a customer is a male or female. (c) Senior Citizen — if a customer is aged or young. (d) Partner — if a customer has a life partner or is single. (e) Dependent — if the customer has a dependent or not. (f) tenure — the total month a customer has been with the company. (g) Phone Services— if the customer enjoys phone services or not. (h) Multiple Lines — if a customer uses more than one line. (i) Internet Services — Customer has internet services at his disposure or not. (j) Online Security — whether or not online services are at a customer's disposal. (k) Online Backup — if a customer has backup services or not. (l) Device Protection — if a customer has device protection services or not. (m) Tech Support — whether or not a customer use tech support service. (n) Streaming TV — if a customer has TV streaming services. (o) Streaming Movies — if a customer streams a movie or not. (p) Contract — whether a month or year’s term of service the customer has with the company. (q) Paperless Billing — whether the customer has paper billing or not. (r) Payment Method — the kind of payment method the customer uses. (s) Monthly Charges — the amount of month the customer pays to the company every month. (t) Total charges — the total amount the company has charged a customer. (u) Churn — if a customer has left the company or not.
 
-**Gender** -- Whether the customer is a male or a female
+Collection of Data
+This section talks about the dataset — how it was manipulated to obtain quality data for better analysis. The process includes.
 
-**SeniorCitizen** -- Whether a customer is a senior citizen or not
+(a) modules importation: we imported different modules and libraries for; the performance of mathematical operations, data manipulations, graphs, and visualizations, handling missing values, Feature Encoding and scaling, class imbalance, and Machine learning modeling
 
-**Partner** -- Whether the customer has a partner or not (Yes, No)
+(b) The Data
 
-**Dependents** -- Whether the customer has dependents or not (Yes, No)
+The shape of the dataset is 7043 rows representing the number of customers and 21 columns. The data type has 1 float, 2 integers, and 18 objects. The total memory used by the dataset is 1.1 megabytes.
 
-**Tenure** -- Number of months the customer has stayed with the company
+Issues identified with the dataset include.
 
-**Phone Service** -- Whether the customer has a phone service or not
-(Yes, No)
+The Total Charges column is expected to be either an integer or float, but it was an object datatype.
+The Total Charges column has 11 missing values.
+gender and tenure started with a small letter making them look different from the other column names.
+How to handle the issues
 
-**MultipleLines** -- Whether the customer has multiple lines or not
+We will convert Total Charges to float data type.
+We will replace non-numeric characters with the appropriate values.
+impute the missing values with the mean.
+convert Senior Citizen to object.
+Rename gender to Gender and tenure to Tenure.
+After the issues are resolved,
 
-**InternetService** -- Customer's internet service provider (DSL, Fiber
-Optic, No)
+Numerical columns = {Tenure, Monthly Charges, Total Charges}
+Categorical columns = {gender, Senior Citizen, Partner, Dependents, Phone Service, Multiple Lines, Internet Service, Online Security, Online Backup, Device Protection, Tech Support, Streaming TV, Streaming Movies, Contract, Paperless Billing, Payment Method}
+Target column = Churn (we are targeting churn because the project seeks to predict customers in the future)
 
-**OnlineSecurity** -- Whether the customer has online security or not
-(Yes, No, No Internet)
+Hypothesis and Questions
+Hypothesis helps us to investigate the relationship that exists between different variables in our dataset and guides us on the path to predict factors that cause customer churn in the company. We formulated the following hypothesis to guide us in our analysis.
 
-**OnlineBackup** -- Whether the customer has online backup or not (Yes,
-No, No Internet)
+Null Hypothesis H0: Customer satisfaction directly affects customer churning rate.
 
-**DeviceProtection** -- Whether the customer has device protection or
-not (Yes, No, No internet service)
+Alternative Hypothesis H1: Customer satisfaction has no direct effect on customer churn.
 
-**TechSupport** -- Whether the customer has tech support or not (Yes,
-No, No internet)
+Based on the hypothesis we came up with the following questions
 
-**StreamingTV** -- Whether the customer has streaming TV or not (Yes,
-No, No internet service)
+What is the churn rate of Telco?
+Which category of customers is likely to churn?
+Do Senior Citizens pay fewer monthly charges than younger Citizens?
+Are customers with Dependents likely to churn?
+How do Dependents affect multiple lines?
+What is the churn rate of the Telco by gender?
+How many customers use different payment methods?
+Data processing
 
-**StreamingMovies** -- Whether the customer has streaming movies or not
-(Yes, No, No Internet service)
+This part of the analysis process is about making available clean, quality data so that the accuracy of the prediction will not negatively be affected. We carried the following on the data.
 
-**Contract** -- The contract term of the customer (Month-to-Month, One
-year, Two year)
+Dropped irrelevant columns.
+Misplaced characters were replaced.
+Some column names were renamed.
+Some columns were converted to their appropriate data type.
+Answering the questions
+This section answers the questions asked based on the formulated hypothesis.
 
-**PaperlessBilling** -- Whether the customer has paperless billing or
-not (Yes, No)
+The Telco’s churn rate
 
-**Payment Method** -- The customer's payment method (Electronic check,
-mailed check, Bank transfer(automatic), Credit card(automatic))
+Pie showing the percentage of customers’ churn and Non-churn.
+From the graph above, the Telco’s customer churn rate is 27%
 
-**MonthlyCharges** -- The amount charged to the customer monthly
+2. Which category of customers is likely to churn?
 
-**TotalCharges** -- The total amount charged to the customer
 
-**Churn** -- Whether the customer churned or not (Yes or No)
 
-## Instructions
 
-Your task is to understand the data and prepare it for model building.
-Your analysis or methods should incorporate the following steps.
 
-1.  Hypothesis formation and Data Processing - Importing the relevant libraries and modules,
-    Cleaning of Data, Check data types, Encoding Data labels etc.
+From the numeric columns;
 
-2.  Data Evaluation -- Perform bivariate and multivariate analysis, EDA
+Senior citizens: Customers who are not senior citizens are more likely to churn than customers who are senior citizens.
 
-See attached some useful resources \[ [Exploratory Data Analysis:
-Univariate, Bivariate, and Multivariate
-Analysis](https://www.enjoyalgorithms.com/blog/univariate-bivariate-multivariate-analysis)
-, [Univariate, Bivariate and Multivariate
-Analysis](https://youtu.be/w_Tm-H-emRo) , [Exploratory Data Analysis
-(EDA) Using Python](https://youtu.be/-o3AxdVcUtQ)\]
+Tenure: customers who are in their first five months and those that have stayed with the company for about five years have a higher churn rate than those in the mid-tenure.
 
-3.  Build & Select Model -- Train Model on dataset and select the best
-    performing model.
+Monthly charges: Customers who are charged higher monthly charges are less likely to churn than those who have fewer monthly charges.
 
-4.  Evaluate your chosen Model.
+Total Charges: the higher a customer’s Total Charges the lesser chance of churning and the reverse is also true.
 
-5.  Model Improvement.
+3. Senior Citizen’s monthly charges against younger Citizens
 
-6.  Future Predictions.
 
-7.  Key Insights and Conclusion.
+From the graph, Senior Citizens are paid more Monthly Charges than Non-Senior Citizens. Senior Citizens pay around 80 million monthly charges while Non-Senior Citizens pay a little above 60 million Month Charges.
 
-Upon completion of your project, you are required to write a blog post
-on your thought process on medium, LinkedIn, personal blog, or any other
-suitable blogging site.
+4. Are customers with Dependents likely to churn?
 
-## Rubrics
 
-Hypothesis & Data Processing:
+From the graph, a little above 15000 customers of the Telco without Dependents churn while those with Dependent churn below 500. This means that the likelihood of a customer churning is not based on having Dependents.
 
--   **Excellent:** Stated hypothesis and asked relevant questions.
-    Import all relevant libraries and conduct all checks
-    to make the data ready for future Analysis.
+5. How Dependents affect multiple lines
 
--   **Good:** Stated hypothesis and implemented few steps to check
-    the quality of data.
 
--   **Fair:** Didn't perform adequate steps in preprocessing the data and also ignored hypothesis.
+From the graph, 3390 customers have dependents but do not have Multiple lines. 2971 of the customers have dependents and also have multiple lines and 682 of the customers have dependents but have no phone services. We can conclude that there is no likelihood that customers with dependents will have multiple lines.
 
-**NB:** Quality checks should involve checking data types,
-missing values, and dealing with class imbalance.
+6. Churn rate of the Telco by gender?
 
-Data Evaluation:
 
--   **Excellent:** Performed more than 5 bivariate and multivariate
-    analysis coupled with graphs to answer questions and hypothesis formed.
+The above graph shows that 50% of Males and 50% percent of Females make up the total customers of Telco. The rate at which they churn each is around 27%. This shows that both males and females have approximately, equal chances of leaving the Telco for another.
 
--   **Good:** Performed few bivariate and multivariate analysis coupled
-    with graphs to answer some questions and hypothesis.
+7. Customers with partners and churn
 
--   **Fair:** Performed only 1 or 2 bivariate & multivariate analysis
-    but omitted key visuals like the correlation matrix.
 
-**[NB:]{.ul}** Visuals should check collinearity, churn rate,
-distributions etc.
+It can be seen from the graph that customers with no partners (1200) churn more than those with partners (669).
 
-Build and Select Model:
+8. How many customers use the different payment methods
 
--   **Excellent:** Train 4 or more models and compare their combination
-    of accuracy, precision, recall and F1 & F2 scores.
 
--   **Good:** Train less than 4 models and compare their accuracy,
-    precision, recall and F1 & F2 scores.
+In the above graph, the different payment methods by the telco and the rate at which customers use them are 22.8% for Mailed checks, Electronic Check is at 33.65%, Bank transfers (automatic) made up 21.6% and credit cards were 21.9%. It means that a slight majority of the customers preferred the electronic check payment method over the other method.
 
--   **Fair:** Train only 1 model and didn't compare any accuracy,
-    precision, recall and F1 & F2 scores.
+Feature Processing & Engineering
+Under this sub-section, our data is further processed to prepare it for modeling.
 
-Evaluate Chosen model
+we checked for duplicated values in the dataset.
+imputed the missing values (numerical columns with the mean and most frequent for categorical columns).
+split the data set into feature and target variables and then split it into train, and validation datasets.
+encoded the categorical features using One Hot Encoder.
+Feature Scaling
+We Scaled the target value (Churn) to make it easy for models to learn and understand the problem. We fitted and transformed both train and validation datasets.
 
--   **Excellent:** Learner evaluates his/her model through k-Fold cross
-    validation and explains the rationale for doing so. The results are
-    further visualized on a graph.
+Machine learning Modeling
+Six models were trained on the data to select the model that performed best on the data. Model 1 — Decision Tree, Model 2 — Random Forest, Model 3 — Logistic Regression, Model 4 — K Nearest Neighbor, Model 5 — Support Vector Machine, Model 6 — Naive Bayes.
 
--   **Good:** Learner only performed cross-validation with little
-    explanation.
+Model Comparison
 
--   **Fair:** Performed only cross validation on the model without
-    explaining the rationale behind.
+0 DecisionTreeClassifier 0.482759
 
-Model Improvement
+1 RandomForestClassifier 0.518405
 
--   **Excellent:** Learner performed Hyperparameter tuning and explained
-    the concept into details.
+2 KNNeighbor 0.600293
 
--   **Good:** Learner performed Hyperparameter tuning with little
-    explanation on the concept.
+3 LogisticRegression 0.553476
 
--   **Fair:** Learner only performed Hyperparameter tuning.
+4 SVC 0.550769
 
-Future Predictions
+5 GaussianNB 0.593928
 
--   **Excellent:** Predicted on test sets and visualized the results via
-    Confusion Matrix with detailed explanation of Confusion Matrix
-    visual.
+Among the six models trained, K Nearest Neighbor was the best-performing model on the given data with an f1_score of 60%.
 
--   **Good:** Predicted on test data and only visualized on Confusion
-    Matrix without any explanation of the graph.
+Feature Importance
 
--   **Fair:** Only predicted on test data.
 
-Key Insights and Conclusion
+Important features for the decision tree model
 
--   **Excellent:** Provide a vivid conclusion on the process by
-    providing 5 or more key insights from the analysis, challenges, and
-    the way forward.
+The important features of the random forest model
 
--   **Good:** Gave a conclusion by providing two of either key insights,
-    challenges, and way forward.
+Important features of the entire data sets.
+Model Interpretation
 
--   **Fair:** Provided only key insights as conclusion.
+Model interpretation
+The graph shows that Internet Service Fiber optic has mostly influenced the model positively with a Shapley value of +0.44, followed by the Contract Month to Month with a Shapley value of +0.36. Monthly Charges and Streaming TV Yes, on the other hand, have negatively influenced the model by scoring -0.36 and 0.16 Shapley values respectively. Monthly Charges are however among the top three. The remaining services and factors have a positive influence on customer churning according to Shapley values.
+
+Hyperparameter tuning.
+By performing hyperparameter tuning on the models, KNeighbor came out as the best model with an f1_score of 0.6101 or 61%.
+
+Conclusion
+In a nutshell, prediction confirms our Null Hypothesis, which states ‘customer satisfaction has a direct effect on customer churning. Proving this, the model prediction using the Shapley plot shows that all the services provided by Telco have positive Shapley values except Monthly Charges and Streaming TV, indicating a positive effect on customer churn rate.
