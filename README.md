@@ -4,6 +4,7 @@
 
 Customer Churn Prediction for a Telco
 
+https://miro.medium.com/v2/resize:fit:640/format:webp/1*kis2pquTBfkGF_eEguREVg.png
 
 Introduction
 It is a common phenomenon for customers to leave one company for another due to one reason or the other. This is referred to as customer churning or turnover. Business operators have become conscious of the project and therefore are taking measures to deal with the situation. This is a classification problem that requires the services of a data professional to analyze and predict the churn rate in the company and the possible churn in the future. That is the aim of this project.
